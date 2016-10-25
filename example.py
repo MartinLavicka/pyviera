@@ -1,8 +1,24 @@
-from pyviera import VieraFinder
+from pyviera import Viera, COMMANDS
 
-if __name__ == '__main__':
-    vf = VieraFinder()
+# List out all possible commands
+print(COMMANDS.keys())
+print()
 
-    tv = vf.get_viera()
+# Look for any supported TVs
+tvs = Viera.discover()
 
+# Make sure we have at least one
+if len(tvs) > 0:
+    # Get the first TV that was found
+    tv = tvs[0]
+
+    # Send TV commands
     tv.mute()
+    tv.vol_up()
+    tv.num(5)
+
+    tv.ch_up()
+    tv.ch_down()
+
+else:
+    print("No TVs could be found")
