@@ -10,7 +10,7 @@ try:
 except ImportError:
     # Python 2
     from urllib2 import urlopen, urlparse, Request
-    from urlparse import urljoin
+    from urlparse import urljoin, urlparse
 
 LOGGER = logging.getLogger("pyviera")
 
@@ -199,7 +199,7 @@ class Viera(object):
 
             soap_body = (
                 '<?xml version="1.0"?>'
-                '<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope"'
+                '<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope" '
                 'SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">'
                 '<SOAP-ENV:Body>'
                 '<m:{name} xmlns:m="{service_type}">'
